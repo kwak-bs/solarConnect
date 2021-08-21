@@ -12,7 +12,7 @@ let initialTodos: Itodo[] = [];
 
 export const useTodo = () => {
   const [todoState, setTodoState] = useState(initialTodos);
-  var nextIdState = 0;
+  const [nextIdState, setNextIdState] = useState(0);
 
   useEffect(() => {
     loadData();
@@ -22,8 +22,16 @@ export const useTodo = () => {
     saveData();
   }, [todoState]);
 
+  const loadNextId = (initialTodos : Itodo[]) => {
+    let MaxId = 0;
+    for(let i=0; i<initialTodos.length; i++) {
+      MaxId = Math.max(MaxId, initialTodos[i].id);
+    }
+
+    setNextIdState(MaxId + 1);
+  }
   const incrementNextId = () => {
-    nextIdState = nextIdState + 1;
+    setNextIdState((prevId) => prevId + 1);
   };
 
   const toggleTodo = (id: number) => {
@@ -45,11 +53,10 @@ export const useTodo = () => {
   };
 
   const createTodo = (todo: Itodo) => {
-    const nextId = todoState.length + 1;
     setTodoState((prevState) =>
       prevState.concat({
         ...todo,
-        id: nextId
+        id: nextIdState
       })
     );
   };
@@ -59,7 +66,7 @@ export const useTodo = () => {
     if (data === undefined) data = "";
     initialTodos = JSON.parse(data!);
     if (initialTodos && initialTodos.length >= 1) {
-      incrementNextId();
+      loadNextId(initialTodos);
     }
     setTodoState(initialTodos);
   };
