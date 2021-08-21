@@ -26,6 +26,7 @@
     <summary><STRONG>
        📚 과제 요구사항 보기
         <STRONG></summary>
+
 **1. 완성하기**
 
 - Todo List 화면에 현재 시간을 표시합니다.
