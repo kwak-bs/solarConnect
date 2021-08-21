@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.js": "/solarConnect/static/js/main.dfcb2da0.chunk.js",
+    "main.js.map": "/solarConnect/static/js/main.dfcb2da0.chunk.js.map",
+    "runtime-main.js": "/solarConnect/static/js/runtime-main.f9e8dbd0.js",
+    "runtime-main.js.map": "/solarConnect/static/js/runtime-main.f9e8dbd0.js.map",
+    "static/css/2.4052b288.chunk.css": "/solarConnect/static/css/2.4052b288.chunk.css",
+    "static/js/2.8c1129ad.chunk.js": "/solarConnect/static/js/2.8c1129ad.chunk.js",
+    "static/js/2.8c1129ad.chunk.js.map": "/solarConnect/static/js/2.8c1129ad.chunk.js.map",
+    "index.html": "/solarConnect/index.html",
+    "precache-manifest.0b79c65084fc0bc6d29c5ef4ec4eece2.js": "/solarConnect/precache-manifest.0b79c65084fc0bc6d29c5ef4ec4eece2.js",
+    "service-worker.js": "/solarConnect/service-worker.js",
+    "static/css/2.4052b288.chunk.css.map": "/solarConnect/static/css/2.4052b288.chunk.css.map",
+    "static/js/2.8c1129ad.chunk.js.LICENSE.txt": "/solarConnect/static/js/2.8c1129ad.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.f9e8dbd0.js",
+    "static/css/2.4052b288.chunk.css",
+    "static/js/2.8c1129ad.chunk.js",
+    "static/js/main.dfcb2da0.chunk.js"
+  ]
+}
