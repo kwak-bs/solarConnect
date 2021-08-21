@@ -27,6 +27,14 @@ export const useTodo = () => {
 
   const toggleTodo = (id: number) => {
     //@TODO
+    const todoToggle = todoState.filter((todo:Itodo) => todo.id === id);
+    todoToggle[0].done ? todoToggle[0].done = false : todoToggle[0].done = true;
+    
+    const undoList = todoState.filter((todo:Itodo) => todo.id !== id);
+    const todoList = undoList.concat(todoToggle);
+    
+    todoList.sort( (o1, o2) => o1.id - o2.id);
+    setTodoState(todoList);
   };
 
   const removeTodo = (id: number) => {
