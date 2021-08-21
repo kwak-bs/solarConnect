@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState,useRef } from "react";
 import styled from "styled-components";
 import { PlusCircleOutlined } from "@ant-design/icons";
 import { Itodo } from "components/todo/TodoService";
@@ -19,6 +19,7 @@ const CircleButton = styled.button<{ open: boolean }>`
   display: flex;
   align-items: center;
   justify-content: center;
+  cursor: pointer;
 `;
 
 const InsertFormPositioner = styled.div`
@@ -62,14 +63,17 @@ const TodoCreate = ({
 }: TodoCreateProps) => {
   const [open, setOpen] = useState(false);
   const [value, setValue] = useState("");
-
+  const inputRef = useRef<HTMLInputElement>(null);
   const handleToggle = () => setOpen(!open);
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) =>
     setValue(e.target.value);
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault(); // 새로고침 방지
-
+    if(value === '' && inputRef.current ) {
+      inputRef.current.focus();
+      return;
+    }
     createTodo({
       id: nextId,
       text: value,
@@ -90,6 +94,7 @@ const TodoCreate = ({
             placeholder="What's need to be done?"
             onChange={handleChange}
             value={value}
+            ref={inputRef}
           />
 
           <CircleButton onClick={handleToggle} open={open}>
