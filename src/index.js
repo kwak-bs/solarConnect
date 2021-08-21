@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { createGlobalStyle } from 'styled-components';
+import { createGlobalStyle, ThemeProvider } from 'styled-components';
+import mixin from 'styles/mixin';
 import App from './App';
 
 const GlobalStyle = createGlobalStyle`
@@ -12,7 +13,9 @@ const GlobalStyle = createGlobalStyle`
 ReactDOM.render(
   <>
     <GlobalStyle />
-    <App />
+    <ThemeProvider theme={{ ...mixin }}>
+      <App />
+    </ThemeProvider>
   </>,
   document.getElementById('root')
 );
