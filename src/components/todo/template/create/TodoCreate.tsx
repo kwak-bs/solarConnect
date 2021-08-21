@@ -2,7 +2,7 @@ import React, { useState,useRef } from "react";
 import styled from "styled-components";
 import { PlusCircleOutlined } from "@ant-design/icons";
 import { Itodo } from "components/todo/TodoService";
-import {DatePicker} from 'antd';
+import {DatePicker, Modal} from 'antd';
 import moment from 'moment';
 import {dateFormat} from 'utils/constants';
 import disabledDate from 'utils/disabledDate';
@@ -21,7 +21,6 @@ const TodoCreate = ({
   const [value, setValue] = useState("");
   const today = moment().format(dateFormat);
   const [dueDate, setDueDate] = useState(today);
-  const inputRef = useRef<HTMLInputElement>(null);
 
   const handleDate = (value: any, dateString: string) => {
     setDueDate(dateString);
@@ -34,8 +33,11 @@ const TodoCreate = ({
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault(); // 새로고침 방지
-    if(value === '' && inputRef.current ) {
-      inputRef.current.focus();
+    if(value === '') {
+      Modal.warning({
+        title : '입력 오류',
+        content: `빈 값은 입력할 수 없습니다.`,
+      })
       return;
     }
     createTodo({
@@ -59,7 +61,6 @@ const TodoCreate = ({
             placeholder="What's need to be done?"
             onChange={handleChange}
             value={value}
-            ref={inputRef}
           />
           <CustomDatePicker 
             allowClear={false}
