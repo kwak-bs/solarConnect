@@ -22,3 +22,5 @@ export const days = [
   'Friday',
   'Saturday',
 ];
+
+export const dateFormat = 'YYYY-MM-DD';
