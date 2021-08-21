@@ -5,7 +5,7 @@ import { Itodo } from "components/todo/TodoService";
 import {DatePicker} from 'antd';
 import moment from 'moment';
 import {dateFormat} from 'utils/constants';
-
+import disabledDate from 'utils/disabledDate';
 interface TodoCreateProps {
   nextId: number;
   createTodo: (todo: Itodo) => void;
@@ -24,7 +24,7 @@ const TodoCreate = ({
   const inputRef = useRef<HTMLInputElement>(null);
 
   const handleDate = (value: any, dateString: string) => {
-    setDueDate(value);
+    setDueDate(dateString);
   }
 
   const handleToggle = () => setOpen(!open);
@@ -42,6 +42,7 @@ const TodoCreate = ({
       id: nextId,
       text: value,
       done: false,
+      dueDate:dueDate
     });
     incrementNextId(); // nextId 하나 증가
 
@@ -61,10 +62,12 @@ const TodoCreate = ({
             ref={inputRef}
           />
           <CustomDatePicker 
+            allowClear={false}
             placeholder="Due date"
             onChange={handleDate}
             value={moment(dueDate)}
             format={dateFormat}
+            disabledDate= {disabledDate}
           />
           <CircleButton onClick={handleToggle} open={open}>
             <PlusCircleOutlined />
