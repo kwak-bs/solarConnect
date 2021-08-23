@@ -1,5 +1,5 @@
 <p align='middle'>
-  <a href='https://solarconnect-todo.netlify.app/'>
+  <a href='https://kwak-bs.github.io/solarConnect/'>
     <img src='https://www.solarconnect.kr/assets/img/common/sc-logo.svg' width="300px;" alt="solarconnect" />
   </a></p>
 <p align='middle'><img alt="GitHub top language" src="https://img.shields.io/github/languages/top/kwak-bs/solarConnect?color=blueviolet"> <img alt="GitHub repo size" src="https://img.shields.io/github/repo-size/kwak-bs/solarConnect"> 
